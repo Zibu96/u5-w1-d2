@@ -19,7 +19,7 @@ public class MyRunner implements CommandLineRunner {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(DemoApplication.class);
 
         System.out.println("CIAO DAL RUNNER");
-        Menu menu = context.getBean(Menu.class);
+        Menu menu =(Menu) context.getBean("menu");
         menu.printMenu();
 
         System.out.println(ordine);

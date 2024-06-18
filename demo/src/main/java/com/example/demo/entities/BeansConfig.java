@@ -104,8 +104,24 @@ public class BeansConfig {
 
     }
 
+    @Bean(name = "menuToUse")
+    public List<MenuItem> menuItems() {
+        List<MenuItem> menuItems = new ArrayList<>();
+        menuItems.add(pizza1());
+        menuItems.add(pizza2());
+        menuItems.add(condimento1());
+        menuItems.add(condimento2());
+        menuItems.add(condimento3());
+        menuItems.add(drink3());
+        menuItems.add(drink4());
+        menuItems.add(drink5());
+        return menuItems;
+
+
+    }
+
     @Bean
-    @Primary
+
     public Menu menu() {
         List<MenuItem> menuItems = new ArrayList<>();
         menuItems.add(pizza1());
@@ -155,18 +171,4 @@ public class BeansConfig {
                 tavolo.getCoperti() * coperti;
     }
 
-    @Bean(name = "menuToUse")
-    public Menu menuToUse() {
-        List<MenuItem> menuItems = new ArrayList<>();
-        menuItems.add(pizza1());
-        menuItems.add(pizza2());
-        menuItems.add(condimento1());
-        menuItems.add(condimento2());
-        menuItems.add(condimento3());
-        menuItems.add(drink3());
-        menuItems.add(drink4());
-        menuItems.add(drink5());
-        return new Menu(menuItems);
-
-    }
 }

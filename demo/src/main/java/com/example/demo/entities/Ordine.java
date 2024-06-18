@@ -19,7 +19,7 @@ import java.util.Random;
 @Setter
 
 public class Ordine {
-    private Menu menu;
+    private List<MenuItem> menuItems;
     private int numero;
     private StatoOrdine statoOrdine;
     private int tavolo;
@@ -28,11 +28,11 @@ public class Ordine {
 
 
     @Autowired
-    public Ordine(@Qualifier("menuToUse") Menu menu,  Tavolo tavolo, @Qualifier("importo") double importo ) {
+    public Ordine(@Qualifier("menuToUse") List<MenuItem> menuItems,  Tavolo tavolo, @Qualifier("importo") double importo ) {
 
 
 
-            this.menu = menu;
+            this.menuItems = menuItems;
             this.numero = 1;
             this.statoOrdine = StatoOrdine.PRONTO;
             this.orario= LocalDateTime.now();
@@ -45,7 +45,7 @@ public class Ordine {
     @Override
     public String toString() {
         return "Ordine{" +
-                "menu=" + menu +
+                "menu=" + menuItems +
                 ", numero=" + numero +
                 ", statoOrdine=" + statoOrdine +
                 ", tavolo=" + tavolo +
